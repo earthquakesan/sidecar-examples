@@ -14,3 +14,4 @@ k logs -f -l app=configmap-watcher
 ```
 
 Summary: golang app with fsnotify does not track changes to the configmap mounted as a file.
+Alternative solution: watch the whole directory and track the changes to the file.

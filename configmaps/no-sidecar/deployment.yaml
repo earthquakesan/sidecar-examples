@@ -17,6 +17,9 @@ spec:
       containers:
       - image: earthquakesan/configmap-watcher:latest
         name: configmap-watcher
+        env:
+        - name: FILE_TO_WATCH
+          value: "/config"
         volumeMounts:
         - name: config
           mountPath: "/config"
@@ -25,8 +28,8 @@ spec:
         - name: config
           configMap:
             name: config
-            # items:
-            # - key: "game.properties"
-            #   path: "game.properties"
+            items:
+            - key: "config.yaml"
+              path: "config.yaml"
             # - key: "user-interface.properties"
             #   path: "user-interface.properties"

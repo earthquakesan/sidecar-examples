@@ -3,7 +3,6 @@ package main
 import (
 	"log"
 	"os"
-	"path/filepath"
 
 	"github.com/fsnotify/fsnotify"
 )
@@ -39,8 +38,8 @@ func main() {
 		}
 	}()
 
-	resolvedFileToWatch, _ := filepath.EvalSymlinks(fileToWatch)
-	err = watcher.Add(resolvedFileToWatch)
+	//resolvedFileToWatch, _ := filepath.EvalSymlinks(fileToWatch)
+	err = watcher.Add(fileToWatch)
 	if err != nil {
 		log.Fatal(err)
 	}
